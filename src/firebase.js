@@ -9,14 +9,13 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER,
-  appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
- 
+  apiKey: "AIzaSyDsp5Qjr_z8tNNxGXjvvtgdkBmWx_yxDJo",
+  authDomain: "imovie-thesis-ie4c1.firebaseapp.com",
+  projectId: "imovie-thesis-ie4c1",
+  storageBucket: "imovie-thesis-ie4c1.appspot.com",
+  messagingSenderId: "654866048799",
+  appId: "1:654866048799:web:c3086ef9bd69a59f1ef22a",
+  measurementId: "G-WNYV9HDD18"
 };
 
 // Initialize Firebase

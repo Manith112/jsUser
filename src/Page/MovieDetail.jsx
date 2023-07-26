@@ -8,7 +8,12 @@ import { AiFillStar } from "react-icons/ai";
 import { Link, useParams } from "react-router-dom";
 
 import axios from "axios";
-import Like from "../component/Like";
+
+
+
+
+
+// import { Cast } from "../component/Cast";
 
 
 
@@ -20,8 +25,9 @@ export function MovieDetail(){
     const [movie, setMovieData] = useState([]);
     const [trailer, setTrailer] = useState(null);
     const [showModal, setShowModal] = useState(false);
-    
-    
+    const [like, setLike] = useState(false)
+
+   
     useEffect(() => {
       fetchData();
     }, [id]);
@@ -45,6 +51,7 @@ export function MovieDetail(){
     console.log(movie);
 
    
+  
 
     // useEffect(() => {
     //     getDetail();
@@ -59,7 +66,8 @@ export function MovieDetail(){
     //     };
     
     return(
-      <div className=" h-[90vh] bg-black"> 
+      <>
+      <div className=" h-[90vh] bg-black "> 
        {showModal ? (
             <>
               <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -79,7 +87,14 @@ export function MovieDetail(){
                     </div>
                     {/*body*/}
                     <>
-                    <iframe width="560" height="315" src= {`https://www.youtube.com/embed/${trailer.key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe 
+                    // width="560" height="315" 
+                    src= {`https://www.youtube.com/embed/${trailer.key}`} 
+                    className="w-[50vh] h-[50vh] md:w-[100vh] md:h-[60vh]"
+                    allowFullScreen
+                    >
+
+                    </iframe>
                     </>
 
                     {/*footer*/}
@@ -115,12 +130,12 @@ export function MovieDetail(){
             />
           </div>
           <div className="float-left w-[70%] md:pl-12 ">
-            <p className="text-3xl md:text-5xl mb-3 mt-3 md:mt-0">
+            <p className="text-3xl md:text-5xl mb-3 mt-3 md:mt-0 font-weight-bold" >
               {movie.title || movie.original_title}{" "}
             </p>
             <div className="flex flex-row items-center ">
               <div className="flex flex-row justify-center items-center mr-5 pb-2">
-                <AiFillStar className="text-3xl mr-2 text-yellow-600" />
+                <AiFillStar className="text-3xl mr-2 text-yellow-300" />
                 <p className="text-4xl ">
                   {movie?.vote_average?.toFixed(1)}{" "}
                 </p>
@@ -163,12 +178,13 @@ export function MovieDetail(){
               </button>
 
 
-              <p className=" cursor-pointer">
-                
-                  
-               
-                  <Like  />
-                
+              <p  className=" cursor-pointer">
+                {like ? (
+                  <FaHeart className="text-red-600 text-2xl ml-6 mb-8 md:mb-0 btn"
+                  />
+                ) : (
+                  <FaRegHeart className="text-gray-300 text-2xl ml-6 mb-8 md:mb-0" />
+                )}
               </p>
               <p>
                 <GiShare className="text-gray-300 text-4xl ml-3 mb-8 md:mb-0" />
@@ -188,6 +204,9 @@ export function MovieDetail(){
     
     
  </div>
+ 
+ 
+ </>
       
       
     )
