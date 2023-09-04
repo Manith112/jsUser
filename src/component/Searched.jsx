@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 
 import Card from "./Card";
-import Movie from "./Movie";
+
 
 function Searched() {
   const { title } = useParams();

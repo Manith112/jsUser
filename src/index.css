@@ -11,7 +11,9 @@
     background-color: black;
     
   }
-
+.navbar{
+  @apply flex items-center justify-between bg-black text-white py-1  ;
+}
 .movie{
   
   @apply text-white text-center;
@@ -23,14 +25,20 @@
   border: dotted red 2px;
   border-radius:5px;
   border-width: 5px;
-  width: 800px;
+  width: 700px;
   margin: auto;
-  
-  
-  
 }
-
-
+  @media only screen and (max-width: 768px){
+    .navbar{
+      .list{
+        display: none;
+      }
+      
+    }
+    .Footer{
+      width: 50px;
+    }
+  }
 
 .dark-ov {
   background-color: rgba(0, 0, 0, 0.3);
@@ -113,12 +121,12 @@ body {
   opacity:0.8;
 }
 
-/* @media (max-width:767px) {
+@media (max-width:767px) {
   .footer-dark .item:not(.social) {
     text-align:center;
     padding-bottom:20px;
   }
-} */
+}
 
 .footer-dark .items.text {
   margin-bottom:36px;

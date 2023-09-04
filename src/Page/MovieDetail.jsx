@@ -13,6 +13,7 @@ import axios from "axios";
 
 
 
+
 // import { Cast } from "../component/Cast";
 
 
@@ -25,7 +26,9 @@ export function MovieDetail(){
     const [movie, setMovieData] = useState([]);
     const [trailer, setTrailer] = useState(null);
     const [showModal, setShowModal] = useState(false);
-    const [like, setLike] = useState(false)
+    // const [cast, setCast] = useState({})
+   
+
 
    
     useEffect(() => {
@@ -50,7 +53,17 @@ export function MovieDetail(){
     };
     console.log(movie);
 
-   
+    // useEffect(() => {
+    //       getCast();
+  
+    //   }, [id]);
+  
+    //   const getCast = async () => {
+    //       const response = 
+    //           await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=4113f3ad734e747a5b463cde8c55de42`);
+    //       const data = await response.json();
+    //       setCast(data);
+    //       };
   
 
     // useEffect(() => {
@@ -169,7 +182,7 @@ export function MovieDetail(){
                                             
               <button
               onClick={() => setShowModal(true)}
-                className="border text-[#FFFDE3] text-base border-gray-300 py-2 px-5 flex flex-row items-center hover:bg-cyan-600 hover:border-cyan-600 mb-8 md:mb-0"
+                className="border text-[#FFFDE3] text-base border-gray-300 py-2 px-5 flex flex-row items-center hover:bg-red-600 hover:border-red-600 mb-8 md:mb-0"
               >
                 <IoMdPlay className="mr-3" />
               
@@ -179,13 +192,9 @@ export function MovieDetail(){
 
 
               <p  className=" cursor-pointer">
-                {like ? (
-                  <FaHeart className="text-red-600 text-2xl ml-6 mb-8 md:mb-0 btn"
-                  />
-                ) : (
-                  <FaRegHeart className="text-gray-300 text-2xl ml-6 mb-8 md:mb-0" />
-                )}
+              <FaHeart className="text-gray-300 text-2xl ml-6 mb-8 md:mb-0" />
               </p>
+              
               <p>
                 <GiShare className="text-gray-300 text-4xl ml-3 mb-8 md:mb-0" />
               </p>
@@ -204,7 +213,13 @@ export function MovieDetail(){
     
     
  </div>
- 
+ {/* {cast && (
+             <img
+             src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
+             alt={cast.name}
+             className="w-full h-full object-cover"
+           />
+        )} */}
  
  </>
       

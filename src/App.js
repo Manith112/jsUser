@@ -17,6 +17,8 @@ import Login from './Page/Login';
 import SignUp from './Page/SignUp';
 import ProtectedRoute from './component/ProtectedRoute';
 import { AuthContextProvider } from './Context/AuthContext';
+import Casts from './component/Cast';
+
 
 
 
@@ -27,43 +29,61 @@ function App() {
   return (
     <div>
       <AuthContextProvider>
-     <Nav />
-     
-     <Routes>
-     
-      <Route path='/' element={<Home />}></Route>
-     
-      <Route path='/popular' element={<Popular />}></Route>  
-      <Route path='/upcoming' element={<Upcoming />}></Route> 
-      <Route path='/now_playing' element={<NowPlay />}></Route>
-      <Route path='/top_rated' element={<TopRated />}></Route>
+        <Nav />
 
-      <Route path="/signIn" element={<Login />}></Route>
-      <Route path="/signUp" element={<SignUp />}></Route>
-      
-         <Route element={<MovieDetail/>} path="/:genre/:id" />
-     
-         <Route
+        <Routes>
+
+          <Route path='/' element={<Home />}></Route>
+
+          <Route path='/popular' element={
+            <ProtectedRoute>
+              <Popular />
+            </ProtectedRoute>}>
+          </Route>
+          <Route path='/upcoming' element={
+            <ProtectedRoute>
+              <Upcoming />
+            </ProtectedRoute>
+          }></Route>
+          <Route path='/now_playing' element={
+            <ProtectedRoute>
+              <NowPlay /></ProtectedRoute>}>
+
+          </Route>
+          <Route path='/top_rated' element={
+            <ProtectedRoute>
+              <TopRated /></ProtectedRoute>}>
+
+          </Route>
+          
+
+          <Route path="/signIn" element={<Login />}></Route>
+          <Route path="/signUp" element={<SignUp />}></Route>
+
+          <Route element={<MovieDetail />} path="/:genre/:id" />
+          <Route element={<Casts />} path='/:genre/:id' />
+
+          <Route
             path="/search/:title"
             element={
-            <ProtectedRoute> 
+              <ProtectedRoute>
                 <Searched />
-                </ProtectedRoute>  
+              </ProtectedRoute>
             }
           ></Route>
-     
-         
-      
-      
-          
-        
-      
-      
-      </Routes>
-      
-    <Footer />
-    </AuthContextProvider>
+
+
+
+
+
+
+
+
+        </Routes>
+
+        <Footer />
+      </AuthContextProvider>
     </div>
-  )}
+  )
+}
 export default App;
-  
