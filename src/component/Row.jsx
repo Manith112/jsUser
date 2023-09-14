@@ -27,14 +27,16 @@ const Row = ({ title, fetchURL, rowID, genre}) => {
       var slider = document.getElementById('slider' + rowID)
       slider.scrollRight = slider.scrollRight + 500;
   };
-
+    const handleClick = () =>{
+      navigate(`${genre}`)
+    }
  
 
     return(
         <div className="rows">
             <div className="flex flex-row items-center">
             <h2 className="text-[#FFFDE3] font-bold md:text-xl p-4 cursor-pointer">{title}</h2>
-      {genre ? <div className="text-white cursor-pointer"/> : null}
+      {genre ? <FiChevronsRight onClick={handleClick} className="text-white cursor-pointer"/> : null}
       </div>
       <div className="relative flex items-center ml-2 group">
       <div

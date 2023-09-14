@@ -7,8 +7,8 @@ export function Footer(){
                  
                  
                   
-                  <div class="col-md-6 items text">
-                  <img src="./images/movielogo1.png" alt="" />
+                  <div class="image">
+                  <img src="./images/movielogo1.png" alt="" class="imovie"/>
                   </div>
                   
                   {/* <div class="col item social">
@@ -20,7 +20,7 @@ export function Footer(){
               </div>
               <br />
               <br />
-              <p class="copyright">Un Manith & Mao Soknat © 2023</p>
+              <p className="copyright">Un Manith & Mao Soknat © 2023</p>
           </div>
       </footer>
   </div>

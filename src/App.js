@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './Page/Home';
 
 import Nav from './component/Navbar';
-import { MovieDetail } from './Page/MovieDetail';
+import  { MovieDetail } from './Page/MovieDetail';
 import Popular from './Page/Popular';
 import Upcoming from './Page/Upcoming';
 import NowPlay from './Page/NowPlay';
@@ -17,7 +17,8 @@ import Login from './Page/Login';
 import SignUp from './Page/SignUp';
 import ProtectedRoute from './component/ProtectedRoute';
 import { AuthContextProvider } from './Context/AuthContext';
-import Casts from './component/Cast';
+import Detail from './Page/MovieDetailes';
+
 
 
 
@@ -59,9 +60,9 @@ function App() {
 
           <Route path="/signIn" element={<Login />}></Route>
           <Route path="/signUp" element={<SignUp />}></Route>
-
+          {/* <Route element={<Detail />} path="/:genre/:id" /> */}
           <Route element={<MovieDetail />} path="/:genre/:id" />
-          <Route element={<Casts />} path='/:genre/:id' />
+          
 
           <Route
             path="/search/:title"

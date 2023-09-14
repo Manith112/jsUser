@@ -8,21 +8,10 @@ import { AiFillStar } from "react-icons/ai";
 import { Link, useParams } from "react-router-dom";
 
 import axios from "axios";
-
-
-
-
-
-
-// import { Cast } from "../component/Cast";
-
-
-
-
-
+import CastList from "../component/CastList";
 export function MovieDetail(){
     // const [movie, setDetail] = useState({});
-     const {id} = useParams();
+     const { id} = useParams();
     const [movie, setMovieData] = useState([]);
     const [trailer, setTrailer] = useState(null);
     const [showModal, setShowModal] = useState(false);
@@ -53,34 +42,11 @@ export function MovieDetail(){
     };
     console.log(movie);
 
-    // useEffect(() => {
-    //       getCast();
-  
-    //   }, [id]);
-  
-    //   const getCast = async () => {
-    //       const response = 
-    //           await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=4113f3ad734e747a5b463cde8c55de42`);
-    //       const data = await response.json();
-    //       setCast(data);
-    //       };
-  
-
-    // useEffect(() => {
-    //     getDetail();
-
-    // }, [id]);
-
-    // const getDetail = async () => {
-    //     const response = 
-    //         await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=4113f3ad734e747a5b463cde8c55de42&language=en-US`);
-    //     const data = await response.json();
-    //     setDetail(data);
-    //     };
+    
     
     return(
       <>
-      <div className=" h-[90vh] bg-black "> 
+      <div className=" detail "> 
        {showModal ? (
             <>
               <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -130,14 +96,14 @@ export function MovieDetail(){
             movie.backdrop_path || movie.poster_path
           }`}
           alt=""
-          className="w-full h-[75vh]  object-cover "
+          className="backdrop"
         />
       </div>
       <div className="flex justify-center ">
         <div className="flex flex-col items-center md:flex-row md:max-w-2xl lg:max-w-3xl absolute xl:max-w-4xl md:mt-[-300px] mt-[-200px] text-white ">
           <div className=" lg:w-[30%] h-auto md:h-[400px] w-[70%] ">
             <img
-              className="w-[100%] h-full md:h-auto object-cover rounded-md"
+              className="poster"
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt=""
             />
@@ -174,7 +140,7 @@ export function MovieDetail(){
               </div>
             </div>
 
-            <p className="text-gray-300 mb-8">{movie.overview} </p>
+            <p className="overview">{movie.overview} </p>
 
 
             <div className="flex flex-row items-center ">
@@ -182,7 +148,7 @@ export function MovieDetail(){
                                             
               <button
               onClick={() => setShowModal(true)}
-                className="border text-[#FFFDE3] text-base border-gray-300 py-2 px-5 flex flex-row items-center hover:bg-red-600 hover:border-red-600 mb-8 md:mb-0"
+                className="trailer"
               >
                 <IoMdPlay className="mr-3" />
               
@@ -205,6 +171,7 @@ export function MovieDetail(){
             </div>
             
             
+            
           </div>
           <div></div>
         </div>
@@ -213,16 +180,10 @@ export function MovieDetail(){
     
     
  </div>
- {/* {cast && (
-             <img
-             src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
-             alt={cast.name}
-             className="w-full h-full object-cover"
-           />
-        )} */}
  
+  
  </>
-      
+   
       
     )
 }

@@ -40,7 +40,7 @@ function Nav() {
       </NavLink>
       {user?.email ? (
         <>
-      <div className=" list flex items-center space-x-10">
+      <div className="listbar">
         <NavLink
           className={({ isActive }) =>
             isActive ? "active-text" : "non-active-text"
